@@ -1,0 +1,59 @@
+﻿@model WebApplication_PagoHaberes.Models.Haberes
+
+@{
+    ViewBag.Title = "Planilla";
+}
+
+<h2>Boleta Pago</h2>
+
+@using (Html.BeginForm())
+            {
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.Label("DNI", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.dni, htmlAttributes: new { @class = "form-control col-md-10" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.nombre, htmlAttributes: new { @class = "form-control col-md-10" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Categoria", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.categoria, htmlAttributes: new { @class = "form-control col-md-10" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Basico", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.basico, htmlAttributes: new { @class = "form-control col-md-10" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Aportacion", htmlAttributes: new { @class = "control-label col-md-2" })
+            AFP
+            @Html.RadioButtonFor(model => model.tipoaportacion, "AFP")
+            ONP
+            @Html.RadioButtonFor(model => model.tipoaportacion, "ONP")
+        </div>
+        <div class="form-group">
+            @Html.Label("Bonificacion", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBox("bonificacion", @ViewBag.bonificacion as string, htmlAttributes: new { @class = "form-control col-md-10", @readonly = "readonly" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Remuneracion", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBox("remuneracion", @ViewBag.remuneracion as string, htmlAttributes: new { @class = "form-control col-md-10", @readonly = "readonly" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Aportacion", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBox("aportacion", @ViewBag.aportacion as string, htmlAttributes: new { @class = "form-control col-md-10", @readonly = "readonly" })
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Neto", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBox("neto", @ViewBag.neto as string, htmlAttributes: new { @class = "form-control col-md-10" })
+        </div>
+        <br />
+        <div class="form-group">
+            @Html.ActionLink("Nuevo", "Planilla", null, new { @class ="btn btn-primary" })
+            <input type="submit" value="Calcular" class="btn btn-primary"/>
+        </div>
+    </div>
+            }
